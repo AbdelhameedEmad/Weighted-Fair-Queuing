@@ -35,6 +35,7 @@ public class mainNetwork {
         					+ " time and which queue to be added to ','in between");
         			Network.enterPacket(x);
       	         }}}
+        currentTime=0;
         while(Network.queuesAreEmpty == false){		//If the queues aren't empty
         	if(Network.getQueue(1).isEmpty() & Network.getQueue(2).isEmpty() & Network.getQueue(3).isEmpty()) 
         		Network.queuesAreEmpty = true;
@@ -42,21 +43,21 @@ public class mainNetwork {
         		if(!heighestWeight.getQueue().isEmpty())
         	p1 = heighestWeight.getQueue().peek();
         		else
-        			p1 = new Packet(0, 1000000000, 0);
+        			p1 = new Packet(1, 1000000000, 1);
         		if(!secHeighestWeight.getQueue().isEmpty())
         	p2 = secHeighestWeight.getQueue().peek();
         		else
-        			p2 = new Packet(0, 1000000000, 0);
+        			p2 = new Packet(2, 1000000000, 2);
         		if(!leastWeight.getQueue().isEmpty())
         	p3 = leastWeight.getQueue().peek();
             		else
-            			p1 = new Packet(0, 1000000000, 0);
+            			p3 = new Packet(3, 1000000000,3);
         	
           if(p1.time <= p2.time && p1.time <= p3.time){	
-        	  if(First==true) {
+        	  if(currentTime<p1.time) {
       	    	currentTime=p1.time;
                   First=false;
-                  }
+                  }	   
         	    p1.delay=currentTime-p1.time;
         		System.out.println("delay of " + "(" + p1.myQueue + "," + p1.number+ ") is: " + p1.delay);
         		currentTime = currentTime +(p1.length / Network.sr);
