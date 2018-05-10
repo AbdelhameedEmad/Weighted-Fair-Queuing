@@ -10,6 +10,5 @@ Input:
 * Arrival Time
 
 Output:
-1. Finish tags of each arriving packet
-2. Delay of each packet ( Total Time of waiting + Service )
-3. Departure Times of each packet sorted in increasing order 
+1. Delay of each packet ( Total Time of waiting + Service )
+2. Departure Times of each packet sorted in increasing order 
